@@ -6,6 +6,7 @@ export default Theme = {
     primaryColor: 'rgba(79, 158, 129, 1)',
     secondaryColor: 'rgba(255, 255, 255, 1)',
     lightgreen: '#009F93',
+    sky:"#A3E4FF",
     green: '#28A745',
     yellow: '#F6CD7D',
     grey: '#B2B2B2',

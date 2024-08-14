@@ -7,6 +7,7 @@ import {
   Image,
   ImageBackground,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import Theme from '../../../Theme/Theme';
 import {TouchableOpacity} from 'react-native';
@@ -22,6 +23,7 @@ const LoginScreen = ({navigation}) => {
       <StatusBar barStyle="light-content" backgroundColor={'black'} />
 
       <TouchableOpacity
+        onPress={() => navigation.goBack()}
         style={{
           height: 50,
           width: 50,
@@ -35,11 +37,12 @@ const LoginScreen = ({navigation}) => {
           style={{height: 50, width: 50}}
         />
       </TouchableOpacity>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{paddingBottom:100}}>
       <Text
         style={{
           color: 'white',
           fontFamily: Theme.fontFamily.exbold,
-          marginTop: 30,
+          marginTop: 10,
           fontSize: 20,
           marginLeft: '5%',
         }}>
@@ -50,12 +53,12 @@ const LoginScreen = ({navigation}) => {
           color: '#B9B9B9',
           fontFamily: Theme.fontFamily.regular,
           marginLeft: '5%',
-          marginTop: 15,
+          marginTop: 5,
           fontSize: 14,
         }}>
         Please log in to access your Shiny account.
       </Text>
-      <View style={{width: '90%', alignSelf: 'center', marginTop: 30}}>
+      <View style={{width: '90%', alignSelf: 'center', marginTop: 20}}>
         <Input
           placeholder="Enter your email or phone number"
           label={'Email Address or Phone Number'}
@@ -78,7 +81,7 @@ const LoginScreen = ({navigation}) => {
           }}>
           Forgot Passowrd?
         </Text>
-        <Button title={'Login'} />
+        <Button title={'Login'} onPress={()=> navigation.navigate('home')} />
 
         <View
           style={{
@@ -153,6 +156,25 @@ const LoginScreen = ({navigation}) => {
           Login using Facebook
         </Text>
       </View>
+      <Text
+        style={{
+          color: 'white',
+          fontSize: 13,
+          fontFamily: Theme.fontFamily.regular,
+          marginTop: 10,
+          alignSelf: 'center',
+        }}>
+        Don't Have an Account?{' '}
+        <Text
+          style={{
+            color: Theme.colors.primaryColor,
+            fontFamily: Theme.fontFamily.semibold,
+          }}
+          onPress={() => navigation.navigate('register')}>
+          Signup
+        </Text>
+      </Text>
+      </ScrollView>
     </View>
   );
 };
